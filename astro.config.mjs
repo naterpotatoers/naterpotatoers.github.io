@@ -5,6 +5,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://naterpotatoers.github.io',
+  site: 'https://nate-garza.dev',
   integrations: [tailwind(), icon(), compress()],
 });

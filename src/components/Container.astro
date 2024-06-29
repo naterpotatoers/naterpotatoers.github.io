@@ -1,11 +1,11 @@
 ---
-import AccordionLayout from "../layouts/AccordionLayout.astro";
-import * as about from "../pages/about/about.md";
 import Card from "./Card.astro";
+import * as about from "../pages/about/about.md";
 const jobs = await Astro.glob("../pages/jobs/*.md");
 const books = await Astro.glob("../pages/books/*.md");
 const projects = await Astro.glob("../pages/projects/*.md");
 const education = await Astro.glob("../pages/education/*.md");
+import AccordionLayout from "../layouts/AccordionLayout.astro";
 ---
 
 <div class="join join-vertical gap-1">
