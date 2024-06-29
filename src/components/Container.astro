@@ -1,0 +1,80 @@
+---
+import AccordionLayout from "../layouts/AccordionLayout.astro";
+import * as about from "../pages/about/about.md";
+import Card from "./Card.astro";
+const jobs = await Astro.glob("../pages/jobs/*.md");
+const books = await Astro.glob("../pages/books/*.md");
+const projects = await Astro.glob("../pages/projects/*.md");
+const education = await Astro.glob("../pages/education/*.md");
+---
+
+<div class="join join-vertical gap-1">
+  <AccordionLayout title={"About"} icon={"carbon:identification"}>
+    <article class="text-justify">
+      <Fragment set:html={about.compiledContent()} />
+    </article>
+  </AccordionLayout>
+
+  <AccordionLayout title={"Job Experience"} icon={"carbon:construction"}>
+    {
+      jobs.map((item) => {
+        return (
+          <Card
+            title={item.frontmatter.title}
+            timeframe={item.frontmatter.date}
+            description={item.compiledContent()}
+            tags={item.frontmatter.tags}
+            url={item.frontmatter.url}
+            url_name={item.frontmatter.org}
+            location={item.frontmatter.location}
+          />
+        );
+      })
+    }
+  </AccordionLayout>
+
+  <AccordionLayout title={"Projects"} icon={"carbon:tools"}>
+    {
+      projects.map((item) => {
+        return (
+          <Card
+            title={item.frontmatter.title}
+            timeframe={item.frontmatter.date}
+            description={item.compiledContent()}
+            tags={item.frontmatter.tags}
+            url={item.frontmatter.url}
+            url_name={"View project"}
+          />
+        );
+      })
+    }
+  </AccordionLayout>
+
+  <AccordionLayout title={"Education"} icon={"carbon:education"}>
+    {
+      education.map((item) => {
+        return (
+          <Card
+            title={item.frontmatter.title}
+            timeframe={item.frontmatter.date}
+            location={item.frontmatter.location}
+            description={item.compiledContent()}
+          />
+        );
+      })
+    }
+  </AccordionLayout>
+
+  <AccordionLayout title={"Books"} icon={"carbon:book"}>
+    {
+      books.map((item) => {
+        return (
+          <Card
+            title={item.frontmatter.title}
+            description={item.compiledContent()}
+          />
+        );
+      })
+    }
+  </AccordionLayout>
+</div>
