@@ -1,11 +1,9 @@
 ---
 title: Software Engineer Intern
 date: 2020 - 2021
-url: https://www.cdkglobal.com/
 location: Remote, California
 org: CDK Global
 tags: [
-    "ExpressJS",
 ]
 ---
 

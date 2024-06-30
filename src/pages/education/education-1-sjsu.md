@@ -1,6 +1,6 @@
 ---
-title: San Jose State University (SJSU)
-location: San Jose, California
+title: San Jose State University
+location: San Jose, California, USA
 date: 2019-2021
 ---
 
