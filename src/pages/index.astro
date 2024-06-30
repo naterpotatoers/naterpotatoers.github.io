@@ -10,7 +10,7 @@ import Container from "../components/Container.astro";
   <head>
     <script is:inline>
       if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "lofi");
+        document.documentElement.setAttribute("data-theme", "black");
       } else
         document.documentElement.setAttribute(
           "data-theme",
@@ -38,7 +38,6 @@ import Container from "../components/Container.astro";
         data-toggle-theme="black,lofi"
         data-act-class="ACTIVECLASS"
         class="toggle toggle-sm mx-1 bg-secondary"
-        checked
       />
       <Icon name="carbon:light" class="w-4 h-4" />
     </div>

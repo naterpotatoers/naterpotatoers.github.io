@@ -3,7 +3,6 @@ title: about
 name: "Nathanael Garza"
 designation: "Software Engineer"
 location: California, USA
-pronouns: "he/him"
 email: "nathanael.garza@outlook.com"
 ---
 
