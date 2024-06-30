@@ -1,10 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
-import BaseLayout from "./BaseLayout.astro";
 const { title, icon } = Astro.props;
 ---
 
-<BaseLayout>
   <div class="collapse collapse-arrow ease-in-out duration-700">
     <input aria-label={title} type="checkbox"/>
     <div class="collapse-title font-extrabold tracking-tight md:text-2xl">
@@ -17,4 +15,3 @@ const { title, icon } = Astro.props;
       <slot/>
     </div>
   </div>
-</BaseLayout>

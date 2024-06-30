@@ -41,62 +41,9 @@ import Container from "../components/Container.astro";
       />
       <Icon name="carbon:light" class="w-4 h-4" />
     </div>
-
-    <div
-      class="divider mx-auto h-fit max-w-3xl w-[95vw] flex flex-nowrap bg-secondary"
-    >
-    </div>
-    <main
-      class="mx-auto flex-grow max-h-[90vh] md:max-h-[70vh] max-w-3xl overflow-y-scroll py-2 grid w-[95vw]"
-    >
-      <div class="container">
-        <Container />
-      </div>
+    <main class="mx-auto max-w-10xl">
+      <Container />
     </main>
     <Footer class="flex justify-center items-center py-4" />
   </body>
 </html>
-
-<style is:global>
-  body {
-    font-family: "DM Sans Variable", sans-serif;
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-
-  @media only screen and (max-width: 480px) {
-    * {
-      font-size: 12px;
-    }
-  }
-
-  .overflow-y-scroll::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  .overflow-y-scroll::-webkit-scrollbar-thumb {
-    background-color: oklch(var(--s));
-  }
-
-  .overflow-y-scroll {
-    scrollbar-width: 1px;
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-</style>
