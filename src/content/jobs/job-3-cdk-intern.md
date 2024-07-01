@@ -3,8 +3,6 @@ title: Software Engineer Intern
 date: 2020 - 2021
 location: Remote, California
 org: CDK Global
-tags: [
-]
 ---
 
 - Improved Kubernetes cluster management by centralizing AWS EKS info within a backend microservice using TypeScript, PostgreSQL, Node.js, and Swagger

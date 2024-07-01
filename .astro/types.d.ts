@@ -197,6 +197,13 @@ declare module 'astro:content' {
   collection: "jobs";
   data: any
 } & { render(): Render[".md"] };
+"job-1.5-progressive-victory.md": {
+	id: "job-1.5-progressive-victory.md";
+  slug: "job-15-progressive-victory";
+  body: string;
+  collection: "jobs";
+  data: any
+} & { render(): Render[".md"] };
 "job-2-cdk-associate.md": {
 	id: "job-2-cdk-associate.md";
   slug: "job-2-cdk-associate";
@@ -216,6 +223,41 @@ declare module 'astro:content' {
 "project-1-gone-with-the-fire.md": {
 	id: "project-1-gone-with-the-fire.md";
   slug: "project-1-gone-with-the-fire";
+  body: string;
+  collection: "projects";
+  data: any
+} & { render(): Render[".md"] };
+"project-2-smart-flask.md": {
+	id: "project-2-smart-flask.md";
+  slug: "project-2-smart-flask";
+  body: string;
+  collection: "projects";
+  data: any
+} & { render(): Render[".md"] };
+"project-3-clever-pedal.md": {
+	id: "project-3-clever-pedal.md";
+  slug: "project-3-clever-pedal";
+  body: string;
+  collection: "projects";
+  data: any
+} & { render(): Render[".md"] };
+"project-4-smart-tractor.md": {
+	id: "project-4-smart-tractor.md";
+  slug: "project-4-smart-tractor";
+  body: string;
+  collection: "projects";
+  data: any
+} & { render(): Render[".md"] };
+"project-5-smart-clamp.md": {
+	id: "project-5-smart-clamp.md";
+  slug: "project-5-smart-clamp";
+  body: string;
+  collection: "projects";
+  data: any
+} & { render(): Render[".md"] };
+"project-6-web-serial.md": {
+	id: "project-6-web-serial.md";
+  slug: "project-6-web-serial";
   body: string;
   collection: "projects";
   data: any

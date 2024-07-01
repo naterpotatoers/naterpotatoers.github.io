@@ -43,7 +43,6 @@ const education = await Astro.glob("../content/education/*.md");
             description={item.compiledContent()}
             tags={item.frontmatter.tags}
             url={item.frontmatter.url}
-            url_name={"View project"}
           />
         );
       })
