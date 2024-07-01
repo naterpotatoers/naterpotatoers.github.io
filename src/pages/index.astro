@@ -1,50 +1,16 @@
 ---
 import "@fontsource-variable/dm-sans";
-import { Icon } from "astro-icon/components";
-import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Container from "../components/Container.astro";
 ---
 
-<html lang="en-US">
-  <head>
-    <script is:inline>
-      if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "black");
-      } else
-        document.documentElement.setAttribute(
-          "data-theme",
-          localStorage.getItem("theme")
-        );
-    </script>
-    <script>
-      import { themeChange } from "theme-change";
-      themeChange();
-    </script>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon.webp" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Nathanael Garza</title>
-  </head>
-  <body class="flex flex-col min-h-screen">
-    <Header />
-    <div
-      class="flex items-center absolute top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8 xl:top-10 xl:right-10 z-10"
-    >
-      <Icon name="carbon:moon" class="w-4 h-4" />
-      <input
-        type="checkbox"
-        data-toggle-theme="black,lofi"
-        data-act-class="ACTIVECLASS"
-        class="toggle toggle-sm mx-1 bg-secondary"
-      />
-      <Icon name="carbon:light" class="w-4 h-4" />
-    </div>
-    <hr />
-    <main class="mx-auto max-w-5xl">
-      <Container />
-    </main>
-    <Footer class="flex justify-center items-center py-4" />
-  </body>
-</html>
+<BaseLayout>
+  <Header />
+  <hr />
+  <main class="mx-auto max-w-5xl">
+    <Container />
+  </main>
+  <Footer class="flex justify-center items-center py-4" />
+</BaseLayout>
