@@ -5,7 +5,7 @@ tags: ["TypeScript", "React", "Node.js", "ExpressJS", "GCP", "MySQL", "CICD"]
 date: CruzHacks 2022
 ---
 
-An IoT bottle that tracks water consumption.
+A bottle that tracks daily water consumption with a leaderboard to compete with friends.
 
 - Best Health Hack
 - MLH's Best Hardware Hack

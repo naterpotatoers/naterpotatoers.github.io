@@ -1,6 +1,6 @@
 ---
-title: Smart Tractor
-url: https://devpost.com/software/smart-tractor
+title: Smart Clamp
+url: https://devpost.com/software/smart-clamp
 tags: ["TypeScript", "React", "Node.js", "ExpressJS", "AWS", "MySQL", "CICD"]
 date: CruzHacks 2023
 ---
