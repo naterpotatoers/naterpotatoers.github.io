@@ -15,7 +15,7 @@ const { timeframe, title, description, url, tags, location } = Astro.props;
       {timeframe && <Badge text={timeframe} />}
     </div>
     {location && <Location location={location} />}
-    <article class="prose">
+    <article class="prose max-w-none">
       <Fragment set:html={description} />
     </article>
     {
