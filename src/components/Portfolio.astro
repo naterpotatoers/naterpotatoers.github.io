@@ -24,8 +24,7 @@ const education = await Astro.glob("../content/education/*.md");
             timeframe={item.frontmatter.date}
             description={item.compiledContent()}
             tags={item.frontmatter.tags}
-            url={item.frontmatter.url}
-            url_name={item.frontmatter.org}
+            org={item.frontmatter.org}
             location={item.frontmatter.location}
           />
         );
