@@ -1,4 +1,6 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 ---
 
@@ -11,8 +13,13 @@ import ThemeToggle from "../components/ThemeToggle.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Nathanael Garza</title>
   </head>
+  <Header />
   <body class="flex flex-col min-h-screen">
     <ThemeToggle />
-    <slot />
+    <main class="mx-auto max-w-5xl">
+      <hr />
+      <slot />
+    </main>
   </body>
+  <Footer />
 </html>
