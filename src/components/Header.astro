@@ -1,37 +1,27 @@
 ---
-import { Icon } from "astro-icon/components";
 import * as about from "../content/about/about.md";
+import Location from "./Location.astro";
 ---
 
-<header class="mx-auto pt-6 pb-2 relative">
-  <article
-    class="flex flex-col md:flex-col items-center gap-4 w-full max-w-2xl"
-  >
-    <div
-      class="flex-shrink-0 w-20 md:w-24 rounded-full shadow-sm overflow-hidden"
-    >
+<header class="mx-auto m-3">
+  <div class="flex flex-col items-center">
+    <div class="w-20 rounded-full shadow-md overflow-hidden">
       <img
         alt="avatar"
         src="/profile.png"
         class="grayscale-[50] hover:grayscale-0"
       />
     </div>
-
-    <div class="text-center">
-      <div
-        class="flex justify-center md:justify-between items-center mb-2 relative"
-      >
-        <h1 class="text-3xl font-extrabold tracking-tight md:text-3xl relative">
-          {about.frontmatter.name}
-        </h1>
-      </div>
-      <h2 class="text-lg mb-2 text-secondary">
+    <div class="text-center justify-center">
+      <h1 class="text-3xl font-bold">
+        {about.frontmatter.name}
+      </h1>
+      <h2 class="text-xl">
         {about.frontmatter.designation}
       </h2>
-      <div class="flex items-center justify-center mt-1">
-        <Icon name="carbon:location" class="w-4 h-4 mr-1" />
-        <p class="text-sm text-secondary">{about.frontmatter.location}</p>
+      <div class="flex justify-center">
+        <Location location={about.frontmatter.location} />
       </div>
     </div>
-  </article>
+  </div>
 </header>
