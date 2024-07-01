@@ -3,8 +3,10 @@ import compress from "astro-compress";
 import icon from "astro-icon";
 import { defineConfig } from 'astro/config';
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://nate-garza.dev',
-  integrations: [tailwind(), icon(), compress()],
+  integrations: [tailwind(), icon(), compress(), sitemap()]
 });
