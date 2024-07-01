@@ -4,7 +4,7 @@ import ContactCard from "./ContactCard.astro";
 const contact = await Astro.glob("../content/contact/*.md");
 ---
 
-<footer class="flex flex-wrap gap-2 justify-center">
+<footer class="flex flex-wrap gap-2 justify-center py-16">
   {
     contact.map((item) => {
       return (
