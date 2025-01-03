@@ -31,6 +31,19 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
       }}
     />
     <title>Nathanael Garza</title>
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M7LT1HP143"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M7LT1HP143");
+    </script>
   </head>
   <Header />
   <body class="flex flex-col min-h-screen">
