@@ -56,6 +56,8 @@ const education = await Astro.glob("../content/education/*.md");
             title={item.frontmatter.title}
             timeframe={item.frontmatter.date}
             location={item.frontmatter.location}
+            org={item.frontmatter.org}
+            tags={item.frontmatter.tags}
             description={item.compiledContent()}
           />
         );

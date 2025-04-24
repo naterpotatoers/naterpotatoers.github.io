@@ -197,6 +197,13 @@ declare module 'astro:content' {
   collection: "jobs";
   data: any
 } & { render(): Render[".md"] };
+"job-1.1-nexus-analytica.md": {
+	id: "job-1.1-nexus-analytica.md";
+  slug: "job-11-nexus-analytica";
+  body: string;
+  collection: "jobs";
+  data: any
+} & { render(): Render[".md"] };
 "job-1.5-progressive-victory.md": {
 	id: "job-1.5-progressive-victory.md";
   slug: "job-15-progressive-victory";

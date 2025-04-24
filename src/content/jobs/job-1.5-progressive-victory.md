@@ -1,6 +1,6 @@
 ---
 title: Volunteer Software Engineer
-date: 2023-2024
+date: 2023-2025
 location: Remote, California
 org: Progressive Victory
 ---
