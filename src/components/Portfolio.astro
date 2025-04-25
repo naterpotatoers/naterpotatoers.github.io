@@ -42,6 +42,8 @@ const education = await Astro.glob("../content/education/*.md");
             description={item.compiledContent()}
             tags={item.frontmatter.tags}
             url={item.frontmatter.url}
+            org={item.frontmatter.org}
+            location={item.frontmatter.location}
           />
         );
       })
@@ -55,10 +57,10 @@ const education = await Astro.glob("../content/education/*.md");
           <Card
             title={item.frontmatter.title}
             timeframe={item.frontmatter.date}
-            location={item.frontmatter.location}
-            org={item.frontmatter.org}
-            tags={item.frontmatter.tags}
             description={item.compiledContent()}
+            tags={item.frontmatter.tags}
+            org={item.frontmatter.org}
+            location={item.frontmatter.location}
           />
         );
       })

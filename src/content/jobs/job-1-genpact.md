@@ -5,7 +5,7 @@ location: Remote, California
 org: Genpact
 ---
 
-- Led engineering team of 9 to architect and implement a Confluent Kafka service enabling real-time data integration across enterprise applications using Java Spring Boot
+- Led engineering team of 9 to architect and implement a Kafka service enabling data integration across internal applications using Java Spring Boot, AWS, and Confluent Cloud
 - Developed a React UI with TypeScript, Tanstack Query, and OKTA authentication so users can self service their application and manage producers and consumers of their topics
 - Spearheaded a comprehensive Kafka onboarding strategy now adopted company-wide at CDK Global, reducing automation times by several months
 - Implemented automated testing pipelines with Harness and GitHub Actions, achieving 90% code coverage across unit, integration, and security tests

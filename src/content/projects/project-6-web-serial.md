@@ -1,7 +1,8 @@
 ---
-title: Libhal Web Serial
+title: Web Serial
 url: https://libhal.github.io/web-serial
 tags: ["JavaScript", "HTML", "CSS", "Web Serial API"]
+org: Libhal
 date: 2023
 ---
 
