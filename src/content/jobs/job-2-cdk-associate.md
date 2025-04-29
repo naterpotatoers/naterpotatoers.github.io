@@ -1,16 +1,15 @@
 ---
-title: Associate Software Engineer 
+title: Associate Software Engineer
 date: 2022 - 2023
 location: Remote, California
 org: CDK Global
 ---
 
-- Modernized ETL workflows to use various AWS services reducing automotive dealership
-onboarding times by several months and costs by ~$2 million annually
-- Removed the need for software engineers to setup and manage dealership databases by developing a
-no-code ReactJS web interface for nontechnical domain experts using Javascript and JSON schema
-- Developed custom AWS Glue Python scripts for converting and migrating dealership data
-- Configured custom CICD pipelines for updating AWS ETL scripts using GitHub Actions
-- Created a Spring Boot microservice for running the ETL workflows using Java AWS SDK
-- Prevented the disruption of critical dealership onboarding systems by patching SQL injection
-vulnerabilities in dozens of our legacy PHP and Perl applications
+- Modernized legacy ETL workflows using AWS services (Glue, Step Functions, S3), reducing automotive dealership
+  onboarding from months to weeks and cutting costs by $2M annually
+- Enabled non-technical experts to manage dealership databases without engineering support by developing a
+  no-code React UI for creating JSON schemas using JavaScript
+- Transformed PICK data into CSV/JSON formats by creating AWS Glue Python scripts
+- Automated the updating and testing of our AWS Glue scripts using GitHub Actions and Pytest
+- Created Spring Boot BFF microservice for managing AWS ETL workflows using Java AWS SDK
+- Identified and remediated SQL injection vulnerabilities in legacy PHP and Perl applications
