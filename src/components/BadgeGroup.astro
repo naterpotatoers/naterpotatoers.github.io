@@ -1,9 +1,19 @@
 ---
-import Badge from "./Badge.astro";
+import Badge from "@/components/Badge.astro";
+
+interface Props {
+  tags: string[];
+}
 
 const { tags } = Astro.props;
 ---
 
-<div class="flex flex-wrap gap-1">
-  {tags.map((item) => <Badge text={item} />)}
-</div>
+{
+  tags.length > 0 && (
+    <div class="flex flex-wrap gap-1">
+      {tags.map((item) => (
+        <Badge text={item} />
+      ))}
+    </div>
+  )
+}

@@ -1,26 +1,32 @@
 ---
-import * as about from "../content/about/about.md";
-import Location from "./Location.astro";
+import { Image } from "astro:assets";
+import Location from "@/components/Location.astro";
+import profile from "@/assets/profile.png";
+
+interface Props {
+  name: string;
+  designation: string;
+  location: string;
+}
+
+const { name, designation, location } = Astro.props;
 ---
 
 <header class="mx-auto m-3">
   <div class="flex flex-col items-center">
     <div class="w-20 rounded-full shadow-md overflow-hidden">
-      <img
-        alt="avatar"
-        src="/profile.png"
-        class="grayscale-[50] hover:grayscale-0"
+      <Image
+        src={profile}
+        width={160}
+        alt={`Portrait of ${name}`}
+        class="grayscale-[50%] hover:grayscale-0"
       />
     </div>
     <div class="text-center justify-center">
-      <h1 class="text-3xl font-bold">
-        {about.frontmatter.name}
-      </h1>
-      <h2 class="text-xl">
-        {about.frontmatter.designation}
-      </h2>
+      <h1 class="text-3xl font-bold">{name}</h1>
+      <h2 class="text-xl">{designation}</h2>
       <div class="flex justify-center">
-        <Location location={about.frontmatter.location} />
+        <Location location={location} />
       </div>
     </div>
   </div>

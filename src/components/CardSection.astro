@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import { byOrder } from "@/lib/collections";
+import Dropdown from "@/components/Dropdown.astro";
+import Card from "@/components/Card.astro";
+
+interface Props {
+  title: string;
+  icon: string;
+  collection: "jobs" | "projects" | "education" | "books";
+}
+
+const { title, icon, collection } = Astro.props;
+
+const rendered = await Promise.all(
+  byOrder(await getCollection(collection)).map(async (entry) => ({
+    data: entry.data,
+    Content: (await entry.render()).Content,
+  })),
+);
+---
+
+<Dropdown title={title} icon={icon}>
+  {
+    rendered.map(({ data, Content }) => (
+      <Card {...data}>
+        <Content />
+      </Card>
+    ))
+  }
+</Dropdown>

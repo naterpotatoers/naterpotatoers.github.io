@@ -1,9 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  icon: string;
+}
+
 const { title, icon } = Astro.props;
 ---
 
-<div class="collapse collapse-arrow duration-500">
+<div class="collapse collapse-arrow">
   <input aria-label={title} type="checkbox" />
   <div class="collapse-title font-bold tracking-tight text-xl">
     <div class="flex">

@@ -1,12 +1,19 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+  url: string;
+}
+
 const { url } = Astro.props;
 ---
 
 <a
   href={url}
   target="_blank"
+  rel="noopener noreferrer"
+  aria-label="External link"
   class="link link-hover"
 >
-  {url !== "#" && <Icon name="carbon:link" class="w-4 h-4 ml-2" />}
+  <Icon name="carbon:link" class="w-4 h-4 ml-2" />
 </a>
