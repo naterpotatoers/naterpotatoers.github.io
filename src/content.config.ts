@@ -1,21 +1,23 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
-const entries = () =>
+const entries = (name: string) =>
   defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/*.md", base: `./src/content/${name}` }),
     schema: z.object({
       title: z.string(),
       org: z.string().optional(),
       date: z.coerce.string().optional(),
       location: z.string().optional(),
-      url: z.string().url().optional(),
+      url: z.url().optional(),
       tags: z.array(z.string()).default([]),
       order: z.number(),
     }),
   });
 
 const contact = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/contact" }),
   schema: z.object({
     title: z.string(),
     icon: z.string(),
@@ -25,7 +27,7 @@ const contact = defineCollection({
 });
 
 const about = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/about" }),
   schema: z.object({
     name: z.string(),
     designation: z.string(),
@@ -35,10 +37,10 @@ const about = defineCollection({
 });
 
 export const collections = {
-  jobs: entries(),
-  projects: entries(),
-  education: entries(),
-  books: entries(),
+  jobs: entries("jobs"),
+  projects: entries("projects"),
+  education: entries("education"),
+  books: entries("books"),
   contact,
   about,
 };

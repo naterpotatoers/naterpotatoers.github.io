@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 7
 title: Smart Clamp
 url: https://devpost.com/software/smart-clamp
 tags:

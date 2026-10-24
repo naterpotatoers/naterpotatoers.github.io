@@ -17,11 +17,11 @@ interface Props {
 const { date, title, url, org, tags = [], location } = Astro.props;
 ---
 
-<div class="card border shadow-md my-2 tracking-tighter">
-  <div class="card-body">
+<div class="card border border-gray-200 shadow-md my-2 tracking-tighter">
+  <div class="card-body p-8 text-base">
     <span class="flex justify-between items-center">
       <span class="flex">
-        <h2 class="font-bold">{org} <span class="font-thin">{title}</span></h2>
+        <h2 class="font-bold">{org} <span class="font-light">{title}</span></h2>
         {url && <Link url={url} />}
       </span>
       {date && <Badge text={date} />}

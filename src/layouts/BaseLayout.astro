@@ -1,11 +1,12 @@
 ---
-import { getImage } from "astro:assets";
-import { getEntry } from "astro:content";
+import { Font, getImage } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
 
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
-import profile from "@/assets/profile.png";
+import profile from "@/assets/profile.jpeg";
+import "@/styles/global.css";
 
 interface Props {
   noindex?: boolean;
@@ -13,12 +14,25 @@ interface Props {
 
 const { noindex = false } = Astro.props;
 
-const about = await getEntry("about", "about");
-const { name, description } = about.data;
+const about = (await getEntry("about", "about"))!;
+const { name, designation, description } = about.data;
 
 const url = new URL(Astro.url.pathname, Astro.site).toString();
-const ogImage = await getImage({ src: profile, width: 600, format: "png" });
+const ogImage = await getImage({ src: profile, width: 180, format: "jpeg" });
 const ogImageUrl = new URL(ogImage.src, Astro.site).toString();
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name,
+  jobTitle: designation,
+  description,
+  image: ogImageUrl,
+  url: Astro.site?.toString(),
+  sameAs: (await getCollection("contact"))
+    .map((entry) => entry.data.url)
+    .filter((href) => href.startsWith("https://")),
+};
 ---
 
 <!doctype html>
@@ -36,6 +50,15 @@ const ogImageUrl = new URL(ogImage.src, Astro.site).toString();
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={`Portrait of ${name}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={name} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={name} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+    <Font cssVariable="--font-inter" preload />
     <script is:inline>
       // Apply the saved theme before first paint to avoid a flash of the wrong theme
       document.documentElement.setAttribute(
@@ -60,7 +83,7 @@ const ogImageUrl = new URL(ogImage.src, Astro.site).toString();
     <ThemeToggle />
     <Header {...about.data} />
     <main class="mx-auto w-full max-w-5xl flex-1">
-      <hr />
+      <hr class="border-gray-200" />
       <slot />
     </main>
     <Footer />

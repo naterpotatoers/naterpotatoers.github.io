@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 5
 title: Clever Pedal
 url: https://devpost.com/software/clever-pedal
 tags:

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 6
 title: Smart Tractor
 url: https://devpost.com/software/smart-tractor
 tags:

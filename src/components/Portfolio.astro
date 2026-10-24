@@ -1,11 +1,11 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import Dropdown from "@/components/Dropdown.astro";
 import Prose from "@/components/Prose.astro";
 import CardSection from "@/components/CardSection.astro";
 
-const about = await getEntry("about", "about");
-const { Content: AboutContent } = await about.render();
+const about = (await getEntry("about", "about"))!;
+const { Content: AboutContent } = await render(about);
 ---
 
 <div class="flex flex-col gap-1">

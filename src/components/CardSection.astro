@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { byOrder } from "@/lib/collections";
 import Dropdown from "@/components/Dropdown.astro";
 import Card from "@/components/Card.astro";
@@ -15,7 +15,7 @@ const { title, icon, collection } = Astro.props;
 const rendered = await Promise.all(
   byOrder(await getCollection(collection)).map(async (entry) => ({
     data: entry.data,
-    Content: (await entry.render()).Content,
+    Content: (await render(entry)).Content,
   })),
 );
 ---

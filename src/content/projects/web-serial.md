@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 8
 title: Web Serial
 url: https://libhal.github.io/web-serial
 tags: ["JavaScript", "HTML", "CSS", "Web Serial API"]
