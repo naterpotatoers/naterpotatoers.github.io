@@ -12,22 +12,31 @@ interface Props {
   url?: string;
   location?: string;
   tags?: string[];
+  compact?: boolean;
 }
 
-const { date, title, url, org, tags = [], location } = Astro.props;
+const {
+  date,
+  title,
+  url,
+  org,
+  tags = [],
+  location,
+  compact = false,
+} = Astro.props;
 ---
 
-<div class="card border border-gray-200 shadow-md my-2 tracking-tighter">
-  <div class="card-body p-8 text-base">
-    <span class="flex justify-between items-center">
-      <span class="flex">
-        <h2 class="font-bold">{org} <span class="font-light">{title}</span></h2>
+<article class="card h-full border border-gray-200 shadow-md tracking-tighter">
+  <div class:list={["card-body text-base", compact ? "p-6" : "p-8"]}>
+    <div class="flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center">
+        <h3 class="font-bold">{org} <span class="font-light">{title}</span></h3>
         {url && <Link url={url} />}
-      </span>
+      </div>
       {date && <Badge text={date} />}
-    </span>
+    </div>
     {location && <Location location={location} />}
     <Prose><slot /></Prose>
     <BadgeGroup tags={tags} />
   </div>
-</div>
+</article>

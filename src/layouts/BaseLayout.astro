@@ -3,7 +3,6 @@ import { Font, getImage } from "astro:assets";
 import { getCollection, getEntry } from "astro:content";
 
 import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import profile from "@/assets/profile.jpeg";
 import "@/styles/global.css";
@@ -16,6 +15,7 @@ const { noindex = false } = Astro.props;
 
 const about = (await getEntry("about", "about"))!;
 const { name, designation, description } = about.data;
+const title = `${name} | ${designation}`;
 
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = await getImage({ src: profile, width: 180, format: "jpeg" });
@@ -29,6 +29,13 @@ const person = {
   description,
   image: ogImageUrl,
   url: Astro.site?.toString(),
+  worksFor: (await getCollection("jobs"))
+    .filter((entry) => entry.data.date?.endsWith("Present"))
+    .map((entry) => ({ "@type": "Organization", name: entry.data.org })),
+  alumniOf: (await getCollection("education")).map((entry) => ({
+    "@type": "CollegeOrUniversity",
+    name: entry.data.org,
+  })),
   sameAs: (await getCollection("contact"))
     .map((entry) => entry.data.url)
     .filter((href) => href.startsWith("https://")),
@@ -41,12 +48,16 @@ const person = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>{name}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
     <link rel="icon" type="image/webp" href="/favicon.webp" />
     {noindex && <meta name="robots" content="noindex" />}
-    <meta property="og:title" content={name} />
+    <meta
+      name="google-site-verification"
+      content="fICpeBzrJ2LP81075gLD2A0m7r7t00Zyq4TvexIuetE"
+    />
+    <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
     <meta property="og:image" content={ogImageUrl} />
@@ -54,7 +65,7 @@ const person = {
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={name} />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={name} />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
@@ -86,6 +97,5 @@ const person = {
       <hr class="border-gray-200" />
       <slot />
     </main>
-    <Footer />
   </body>
 </html>

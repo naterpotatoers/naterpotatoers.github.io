@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { byOrder } from "@/lib/collections";
 import Location from "@/components/Location.astro";
+import ContactCard from "@/components/ContactCard.astro";
 import profile from "@/assets/profile.jpeg";
 
 interface Props {
@@ -10,9 +13,11 @@ interface Props {
 }
 
 const { name, designation, location } = Astro.props;
+
+const contact = byOrder(await getCollection("contact"));
 ---
 
-<header class="mx-auto m-3">
+<header class="mx-auto m-3 px-4">
   <div class="flex flex-col items-center">
     <div class="w-20 rounded-full shadow-md overflow-hidden">
       <Image
@@ -24,10 +29,21 @@ const { name, designation, location } = Astro.props;
     </div>
     <div class="text-center justify-center">
       <h1 class="text-3xl font-bold">{name}</h1>
-      <h2 class="text-xl">{designation}</h2>
+      <p class="text-xl">{designation}</p>
       <div class="flex justify-center">
         <Location location={location} />
       </div>
     </div>
+    <nav aria-label="Contact" class="flex flex-wrap justify-center gap-2 mt-4">
+      {
+        contact.map((item) => (
+          <ContactCard
+            url={item.data.url}
+            label={item.data.title}
+            icon={item.data.icon}
+          />
+        ))
+      }
+    </nav>
   </div>
 </header>

@@ -1,6 +1,6 @@
 ---
 import { getEntry, render } from "astro:content";
-import Dropdown from "@/components/Dropdown.astro";
+import Section from "@/components/Section.astro";
 import Prose from "@/components/Prose.astro";
 import CardSection from "@/components/CardSection.astro";
 
@@ -8,20 +8,35 @@ const about = (await getEntry("about", "about"))!;
 const { Content: AboutContent } = await render(about);
 ---
 
-<div class="flex flex-col gap-1">
-  <Dropdown title="About" icon="carbon:identification">
+<div class="flex flex-col gap-12 px-4 py-8">
+  <Section id="about" title="About" icon="carbon:identification">
     <Prose><AboutContent /></Prose>
-  </Dropdown>
+  </Section>
   <CardSection
+    id="work"
     title="Work Experience"
     icon="carbon:construction"
     collection="jobs"
   />
-  <CardSection title="Projects" icon="carbon:tools" collection="projects" />
   <CardSection
-    title="Education"
-    icon="carbon:education"
-    collection="education"
+    id="projects"
+    title="Projects"
+    icon="carbon:tools"
+    collection="projects"
+    grid
   />
-  <CardSection title="Books" icon="carbon:book" collection="books" />
+  <div class="grid gap-12 md:grid-cols-2">
+    <CardSection
+      id="education"
+      title="Education"
+      icon="carbon:education"
+      collection="education"
+    />
+    <CardSection
+      id="books"
+      title="Books"
+      icon="carbon:book"
+      collection="books"
+    />
+  </div>
 </div>

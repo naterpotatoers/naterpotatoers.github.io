@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  id: string;
+  title: string;
+  icon: string;
+}
+
+const { id, title, icon } = Astro.props;
+---
+
+<section id={id} aria-labelledby={`${id}-title`} class="scroll-mt-8">
+  <h2
+    id={`${id}-title`}
+    class="flex items-center gap-4 mb-4 text-xl font-bold tracking-tight"
+  >
+    <Icon name={icon} class="w-8 h-8" />
+    {title}
+  </h2>
+  <slot />
+</section>

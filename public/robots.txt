@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nate-garza.dev/sitemap-index.xml
